@@ -2,7 +2,8 @@ import { babel } from "@rollup/plugin-babel";
 // import multiEntry from "@rollup/plugin-multi-entry";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 
-const extensions = [".ts", ".js"];
+const extensions = [".ts"];
+// const extensions = [".ts", ".js"];
 
 const preventThreeShakingPlugin = () => {
     return {
@@ -22,6 +23,8 @@ export default {
   output: {
     dir: "clasp",
     format: "esm",
+    // file: "clasp/bundle.ts",
+    // inlineDynamicImports: true
   },
   plugins: [
     preventThreeShakingPlugin(),
@@ -33,8 +36,6 @@ export default {
         babelHelpers: "runtime",
         skipPreflightCheck: true
     }),
-    // multiEntry({
-    //     entryFileName: "clasp/multilib.ts"
-    // })
+    // multiEntry({})
   ],
 };
